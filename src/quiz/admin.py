@@ -2,7 +2,7 @@ from django.contrib import admin
 import nested_admin
 from .models import Category, Quiz, Question, Answer
 
-
+#  İki modeli iç içe koymak için kullanılıyor
 class AnswerInline(nested_admin.NestedTabularInline):  # ınline olarak hazırlıyor
     model = Answer
     extra = 5

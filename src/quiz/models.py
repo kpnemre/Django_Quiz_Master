@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 
 class Category(models.Model):
@@ -21,6 +22,12 @@ class Quiz(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, default=1)
     date_created = models.DateTimeField(auto_now_add=True)
 
+    # def save(self, *args, **kwargs):
+    #     if not self.id:
+    #         self.date_created = timezone.now()
+    #     self.date_modified=timezone.now()
+    #     return super(Quiz, self).save(*args,**kwargs)
+
     def __str__(self):
         return self.title
 
@@ -37,7 +44,7 @@ class Update(models.Model):
 
     class Meta:
         abstract = True
-        # DB ye kaydedilmemesi için abstract Model. tekrarı önelemek için
+        # DB ye kaydedilmemesi için abstract Model inheritance . tekrarı önelemek için
 
 
 class Question(Update):
@@ -52,13 +59,13 @@ class Question(Update):
     title = models.CharField(max_length=300, verbose_name="question")
     difficulty = models.IntegerField(choices=SCALE)
     date_created = models.DateTimeField(auto_now_add=True)
-
+    # updated= models.DateTimeField(auto_now_add=True)
     def __str__(self):
         return self.title
 
 
 class Answer(Update):
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    # question = models.ForeignKey(Question, on_delete=models.CASCADE)
     question = models.ForeignKey(
         Question, on_delete=models.CASCADE, related_name='answer')
     answer_text = models.CharField(max_length=250)
@@ -66,3 +73,6 @@ class Answer(Update):
     
     def __str__(self):
         return self.answer_text
+
+
+# Absratct Model inheritance
