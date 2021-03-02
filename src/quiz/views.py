@@ -11,13 +11,15 @@ class CategoryList(generics.ListAPIView):
 
 class CategoryDetail(generics.ListAPIView):
     serializer_class = CategoryDetailSerializer
-
+#  queryset i alamıyoruz. burda seçilen katagorideki quiz leri listemek amaçlanıyor.
+# queryset i overwrite ediyoruz. get_queryset ile ediyoruz
     def get_queryset(self):
         queryset = Quiz.objects.all()
         category = self.kwargs["category"]  # backend, frontend
         queryset = queryset.filter(category__name=category)
-        # child tan parent ulaşmak için x __y şeklinde yazıyoruz
+        # child tan parent ulaşmak için x __y şeklinde yazıyoruz. Quiz den Catagory modeline  ulaşmış oluyoruz
         return queryset
+    # Quiz.object.filter(category__name=category) 
 
 
 class QuizDetail(generics.ListAPIView):
@@ -26,7 +28,7 @@ class QuizDetail(generics.ListAPIView):
     def get_queryset(self):
         queryset = Question.objects.all()
         title = self.kwargs["title"]
-        queryset = queryset.filter(quiz__title=title)
+        queryset = queryset.filter(quiz__title=title)# title (Django, nextjs) göre filtreliyor
         return queryset
         
         

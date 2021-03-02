@@ -5,7 +5,7 @@ from .models import Category, Quiz, Question, Answer
 #  İki modeli iç içe koymak için kullanılıyor
 class AnswerInline(nested_admin.NestedTabularInline):  # ınline olarak hazırlıyor
     model = Answer
-    extra = 5
+    extra = 4
     max_num = 8
 
 

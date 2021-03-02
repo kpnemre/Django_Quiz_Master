@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from .models import Answer, Category, Question, Quiz
 
-
+# her model için bir serializer kullanılıyor.
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
@@ -31,7 +31,7 @@ class AnswerSerializer(serializers.ModelSerializer):
             'is_right',
         ]
 
-
+# Nested serializer
 class QuestionSerializer(serializers.ModelSerializer):
     answer = AnswerSerializer(many=True, read_only=True)
     difficulty = serializers.SerializerMethodField()

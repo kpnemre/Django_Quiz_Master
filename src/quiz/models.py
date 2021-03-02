@@ -12,11 +12,15 @@ class Category(models.Model):
         verbose_name_plural = "Categories"
 
     @property
+    #  method u field olarak kullanmak için koyuyoruz,
+    # koymaz isek de çalışır.attribute olarak kullandığımız belirtmek için kullanıuoruz. best practice
     def quiz_count(self):
         return self.quiz_set.count()
     #model in adını_set parametresi  parent tan child a ulaşıyoruz. Quiz de kaç obje olduğunu döner
-
-
+    # model in altını method olarak yazıp field olarak kullanabiliyoruz.
+    
+    
+    
 class Quiz(models.Model):
     title = models.CharField(max_length=100, verbose_name="Quiz Title")
     category = models.ForeignKey(Category, on_delete=models.CASCADE, default=1)
@@ -37,6 +41,7 @@ class Quiz(models.Model):
     @property
     def question_count(self):
         return self.question_set.count()
+    # herbir quiz deki soru sayısı nı verecek. parent tan child a 
 
 
 class Update(models.Model):
