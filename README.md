@@ -11,6 +11,10 @@ https://quizmaster-api.herokuapp.com/auth/login/
 https://quizmaster-api.herokuapp.com/auth/logout/
 
 Quiz Catagories : https://quizmaster-api.herokuapp.com/quiz/
+
 Quiz about Backend or what you create : https://quizmaster-api.herokuapp.com/quiz/Backend
+
 Question and Answer :   https://quizmaster-api.herokuapp.com/quiz/question/Django
+
+It has token Authentications but, It is cancelled to see quiz's endpoints . 
 
