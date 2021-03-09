@@ -1,4 +1,4 @@
-# Django_Quiz_Master
+# Django_Quiz_Master_API
 
 https://quizmaster-api.herokuapp.com/
 
