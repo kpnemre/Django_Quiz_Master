@@ -18,3 +18,6 @@ Question and Answer :   https://quizmaster-api.herokuapp.com/quiz/question/Djang
 
 It has token Authentications but, It is cancelled to see quiz's endpoints . 
 
+![image](https://user-images.githubusercontent.com/67653615/110506894-94275e80-8110-11eb-9530-1c6f7a4f686e.png)
+
+
