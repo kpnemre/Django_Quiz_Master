@@ -2,7 +2,7 @@
 
 https://quizmaster-api.herokuapp.com/
 
-This api is basic quiz api on Heroku. It's endpints:
+This api is basic quiz api on Heroku. It's endpoints:
 
 https://quizmaster-api.herokuapp.com/admin
 
