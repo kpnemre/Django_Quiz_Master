@@ -2,7 +2,7 @@ from django.shortcuts import render
 from rest_framework import generics
 from .models import Category, Quiz, Question
 from .serializers import CategorySerializer, CategoryDetailSerializer,QuestionSerializer
-from .pagination import MyPagination
+# from .pagination import MyPagination
 
 class CategoryList(generics.ListAPIView):
     serializer_class = CategorySerializer
@@ -24,10 +24,11 @@ class CategoryDetail(generics.ListAPIView):
 
 class QuizDetail(generics.ListAPIView):
     serializer_class = QuestionSerializer
+    # pagination_class= MyPagination
 
     def get_queryset(self):
         queryset = Question.objects.all()
-        title = self.kwargs["title"]
+        title = self.kwargs["title"] # title ı url den akıyoruz.
         queryset = queryset.filter(quiz__title=title)# title (Django, nextjs) göre filtreliyor
         return queryset
         

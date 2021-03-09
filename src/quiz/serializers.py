@@ -34,7 +34,8 @@ class AnswerSerializer(serializers.ModelSerializer):
 # Nested serializer
 class QuestionSerializer(serializers.ModelSerializer):
     answer = AnswerSerializer(many=True, read_only=True)
-    difficulty = serializers.SerializerMethodField()
+    difficulty = serializers.SerializerMethodField() # altta yazdığım method tan al
+    #method ile serialize etmek istendiğinde kullanılır
 
     class Meta:
         model = Question
@@ -45,4 +46,4 @@ class QuestionSerializer(serializers.ModelSerializer):
         )
 
     def get_difficulty(self, obj):
-        return obj.get_difficulty_display()
+        return obj.get_difficulty_display() # get_field_display fronted te gösterim için.
